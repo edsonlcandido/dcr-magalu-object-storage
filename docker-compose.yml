@@ -1,0 +1,13 @@
+version: '3'
+services:
+  registry:
+    image: registry:2
+    environment:
+      - REGISTRY_STORAGE=s3
+      - REGISTRY_STORAGE_S3_BUCKET=${OBJECT_STORAGE_BUCKET}
+      - REGISTRY_STORAGE_S3_ACCESSKEY=${OBJECT_STORAGE_ACCESS_KEY}
+      - REGISTRY_STORAGE_S3_SECRETKEY=${OBJECT_STORAGE_SECRET_KEY}
+      - REGISTRY_STORAGE_S3_REGIONENDPOINT=${OBJECT_STORAGE_URL}
+      - REGISTRY_STORAGE_S3_REGION=us-east-1  # Use uma região padrão genérica (não será usada com o endpoint customizado)
+    ports:
+      - "5000:5000"
