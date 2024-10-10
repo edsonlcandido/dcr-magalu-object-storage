@@ -9,5 +9,6 @@ services:
       - REGISTRY_STORAGE_S3_SECRETKEY=${OBJECT_STORAGE_SECRET_KEY}
       - REGISTRY_STORAGE_S3_REGIONENDPOINT=${OBJECT_STORAGE_URL}
       - REGISTRY_STORAGE_S3_REGION=us-east-1  # Use uma região padrão genérica (não será usada com o endpoint customizado)
+      - REGISTRY_STORAGE_DELETE_ENABLED=true  # Habilita a exclusão de imagens
     ports:
       - "5000:5000"
